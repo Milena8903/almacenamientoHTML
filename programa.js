@@ -113,6 +113,45 @@ function contruirFilas(){
 
         for(let i=0; i<miFuente.length; i++){
 
+            //La tercera forma
+            //utilizar funciones de js para insertar notos en una pag
+            //js tiene unos nodos específicos
+
+            //tomo la tabla
+            let cuerpoTabla = document.getElementById("cuerpoTabla");
+
+            //voy insertando las funciones específicas
+            //creando fila
+            let fila = cuerpoTabla.insertRow(i);
+            //a esa fila le creo una celda 
+            let celda = fila.insertCell(0);
+            //creo el texto
+            let texto = document.createTextNode(miFuente.key(i));
+            //le agrego el texto a la celda
+            celda.appendChild(texto);
+
+            celda = fila.insertCell(1);
+            texto = document.createTextNode(miFuente-getItem(miFuente.key(i)));
+            celda.appendChild(texto);
+            /*
+            //Ahora la segunda forma
+            
+            //Dejo la table y puedo inyectar código html en esa tabla
+            let cuerpoTabla = document.getElementById("cuerpoTabla");
+
+            let clave = miFuente.key(i);
+            let valor = miFuente.getItem(miFuente.key(i));
+
+            //coja el html q esta en el cuerpo de la tabla y agreguele
+            //cadenas de texto prepocesadas
+            //agregue una colunma y cierra la fila
+             // cuerpoTabla.innerHTML = cuerpoTabla.innerHTML + `<tr><td>${clave}</td><td>${valor}</td></tr>`
+
+             //reduciendo el código anterior
+             cuerpoTabla.innerHTML += `<tr><td>${clave}</td><td>${valor}</td></tr>`;
+            */
+
+            /*
             let cuerpoTabla = document.getElementById("cuerpoTabla");
             let fila = document.createElement("tr");
     
@@ -130,8 +169,9 @@ function contruirFilas(){
             fila.appendChild(celda);
             cuerpoTabla.appendChild(fila);
             }
+            */
     }
 }
-
+}
 
 contruirFilas();
